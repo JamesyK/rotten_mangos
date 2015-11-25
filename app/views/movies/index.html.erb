@@ -1,11 +1,25 @@
 <h1>Rotten Mangoes</h1>
+
 <%= link_to "Submit a movie!", new_movie_path %>
-<hr>
-<% @movies.each do |movie| %>
-  <%= link_to image_tag(movie.poster_image_url(:thumb).to_s), movie_path(movie) %>
-  <h2><%= link_to movie.title, movie_path(movie) %></h2>
-  <h3><%= movie.release_date %></h3>
-  <h4>Dir. <%= movie.director %> | <%= movie.runtime_in_minutes %> minutes</h4>
-  <p><%= movie.description %></p>
+
+<%= form_tag(movies_path, method: "get", id: "search-form") do %>
+  <%= label_tag :search, "Search for:" %>
+  <%= text_field_tag :search, params[:search], placeholder: "Search Title or Director" %>
+  <%= label_tag 'duration', "Run time:" %>
+  <%= select_tag 'duration', options_for_select([['Under 90 minutes', "< 90"], ['Between 90 and 120 minutes', "between 90 and 120"], ['Over 120 minutes', "> 120"]]), include_blank: true %>
+  <%= submit_tag "Search", name: nil %>
+<% end %>
+
+<% if @movies.present? %>
   <hr>
+  <% @movies.each do |movie| %>
+    <%= link_to image_tag(movie.poster_image_url(:thumb).to_s), movie_path(movie) %>
+    <h2><%= link_to movie.title, movie_path(movie) %></h2>
+    <h3><%= movie.release_date %></h3>
+    <h4>Dir. <%= movie.director %> | <%= movie.runtime_in_minutes %> minutes</h4>
+    <p><%= movie.description %></p>
+    <hr>
+  <% end %>
+<% else %>
+  <p>There are no movies with a title or director containing the term(s) <%= params[:search] %></p>
 <% end %>
