@@ -26,6 +26,7 @@
         <td><%= link_to 'Show', admin_user_path(user) %></td>
         <td><%= link_to 'Edit', edit_admin_user_path(user) %></td>
         <td><%= link_to 'delete', admin_user_path(user), method: :delete, data: { confirm: "You sure?" } %></td>
+        <td><a href="/swap_account/<%= user.id %>">Swap Account</a></td>
       </tr>
     <% end %>
   </tbody>
