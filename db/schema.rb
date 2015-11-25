@@ -43,7 +43,7 @@ ActiveRecord::Schema.define(version: 20151124204020) do
     t.datetime "updated_at"
     t.string   "firstname"
     t.string   "lastname"
-    t.boolean  "admin"
+    t.boolean  "admin",           default: false
   end
 
 end
