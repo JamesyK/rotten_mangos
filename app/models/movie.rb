@@ -18,8 +18,7 @@ class Movie < ActiveRecord::Base
   end
 
   def self.search(search)
-    where("title LIKE ?", "%#{search}%") ||
-    where("director LIKE ?", "%#{search}%")
+    where("title LIKE ? or director LIKE ?", "%#{search[:search]}%", "%#{search[:search]}%").where("runtime_in_minutes #{search[:duration]}")
   end
 
   protected
