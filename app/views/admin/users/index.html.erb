@@ -1,4 +1,7 @@
 <h1>Admin User's management</h1>
+<p>
+  <%= link_to 'Create User', new_admin_user_path %>
+</p>
 
 <%= paginate @users %>
 
@@ -9,7 +12,7 @@
       <th>Email</th>
       <th>Created at</th>
       <th>Admin?</th>
-      <th colspan="1"></th>
+      <th colspan="2"></th>
     </tr>
   </thead>
 
@@ -21,6 +24,7 @@
         <td><%= user.created_at %></td>
         <td><%= user.admin %></td>
         <td><%= link_to 'Show', admin_user_path(user) %></td>
+        <td><%= link_to 'Edit', edit_admin_user_path(user) %></td>
       </tr>
     <% end %>
   </tbody>
