@@ -9,7 +9,7 @@ Rails.application.routes.draw do
   resources :sessions, only: [:new, :create, :destroy]
 
   namespace :admin do
-    resources :users, only: [:index]
+    resources :users
   end
 
   # The priority is based upon order of creation: first created -> highest priority.
