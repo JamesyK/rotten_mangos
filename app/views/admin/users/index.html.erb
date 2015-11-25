@@ -1,17 +1,27 @@
 <h1>Admin User's management</h1>
+
+<%= paginate @users %>
+
 <table>
-  <tr>
-    <th>Full Name</th>
-    <th>Email</th>
-    <th>Created at</th>
-    <th>Admin?</th>
-  </tr>
-  <% @users.each do |user| %>
+  <thead>
     <tr>
-      <td><%= user.full_name %></td>
-      <td><%= user.email %></td>
-      <td><%= user.created_at %></td>
-      <td>Debug:false</td>
+      <th>Full Name</th>
+      <th>Email</th>
+      <th>Created at</th>
+      <th>Admin?</th>
+      <th colspan="1"></th>
     </tr>
-  <% end %>
+  </thead>
+
+  <tbody>
+    <% @users.each do |user| %>
+      <tr>
+        <td><%= user.full_name %></td>
+        <td><%= user.email %></td>
+        <td><%= user.created_at %></td>
+        <td><%= user.admin %></td>
+        <td><%= link_to 'Show', admin_user_path(user) %></td>
+      </tr>
+    <% end %>
+  </tbody>
 </table>
