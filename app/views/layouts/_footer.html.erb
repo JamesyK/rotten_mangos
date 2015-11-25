@@ -8,5 +8,8 @@
     <% else %>
       <%= link_to "Log In", new_session_path %> | <%= link_to "Sign Up", new_user_path %>
     <% end %>
+    <% if pseudo_user %>
+      <span>Swap back to: <a href='swap_account/<%= pseudo_user.id %>'><%= pseudo_user.full_name %></a></span>
+    <% end %>
   </small>
 </footer>

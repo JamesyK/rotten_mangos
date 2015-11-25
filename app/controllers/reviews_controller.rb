@@ -5,7 +5,7 @@ class ReviewsController < ApplicationController
 
   def new
     @movie = Movie.find(params[:movie_id])
-    @review = @move.reviews.build
+    @review = @movie.reviews.build
   end
 
   def create

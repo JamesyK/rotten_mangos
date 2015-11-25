@@ -16,9 +16,9 @@ class ApplicationController < ActionController::Base
     @current_user ||= User.find(session[:user_id]) if session[:user_id]
   end
 
-  def admin?
-    redirect_to root_path, flash: { user: "Must be an admin." } unless current_user.admin
+  def pseudo_user
+    @pseudo_user ||= User.find(session[:admin_id]) if session[:admin_id]
   end
 
-  helper_method :current_user, :admin?
+  helper_method :current_user, :pseudo_user
 end

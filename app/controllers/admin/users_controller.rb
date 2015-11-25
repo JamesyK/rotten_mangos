@@ -42,6 +42,24 @@ class Admin::UsersController < ApplicationController
     redirect_to admin_users_path
   end
 
+  def swap_account
+    if pseudo_user
+      session[:user_id] = pseudo_user.id
+      session[:admin_id] = nil
+      redirect_to admin_users_path
+    else
+      session[:admin_id] = current_user.id
+      session[:user_id] = params[:id]
+      redirect_to root_path
+    end
+  end
+
+  private
+
+  def admin?
+    redirect_to root_path, flash: { user: "Must be an admin." } unless current_user.admin || pseudo_user.admin
+  end
+
   protected
 
   def user_params
