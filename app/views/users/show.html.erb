@@ -1,0 +1,25 @@
+<div>
+  <%= link_to 'All Movies', movies_path %>
+</div>
+<hr>
+
+
+<h1>User Information</h1>
+
+<p>
+  Name: <%= @user.full_name %>
+</p>
+<p>
+  Email: <%= @user.email %>
+</p>
+<hr>
+
+<h3>Reviews</h3>
+
+<% @user.reviews.each do |review| %>
+  <a href="/movies/<%= review.movie.id %>"<strong><%= review.movie.title %></strong></a>
+  <p><%= review.text %></p>
+  <p><%= review.rating_out_of_ten %>/10</p>
+  <small>- <%= review.user.full_name %></small><br/>
+  <hr>
+<% end %>
