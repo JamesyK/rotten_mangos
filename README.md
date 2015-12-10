@@ -1,7 +1,7 @@
-(In Development)
+Rotten Mangos (In Development)
 =======
 
-Rotten Mangos - A rotten tomatos like clone for displaying and rating movies made with ruby on rails.
+A rotten tomatos like clone for displaying and rating movies made with ruby on rails.
 
 Ruby version - 2.1.3p242
 
