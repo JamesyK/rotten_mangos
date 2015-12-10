@@ -1,4 +1,6 @@
-== README
+
+
+== (In Development)
 
 Rotten Mangos - A rotten tomatos like clone for displaying and rating movies made with ruby on rails.
 
