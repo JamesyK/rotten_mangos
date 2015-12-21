@@ -11,3 +11,5 @@ bin/rake db:migrate
 
 To run:
 bin/rails server
+
+Todo: Front end styling
